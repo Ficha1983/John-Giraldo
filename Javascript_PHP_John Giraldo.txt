@@ -1,0 +1,509 @@
+PHP
+-------------------------------------------------------
+bucle.php
+<?php
+
+// Bucle For
+
+// Nos permite recorrer una lista o diccionario
+
+$nombres = ['Ana', 'Pablo', 'Diego', 'Carmen'];
+
+// foreach ($nombres as $nombre) {
+//     echo $nombre . "\n";
+// }
+
+// Para una lista de diccionarios
+
+$personas = [];
+$a = ['nombre' => 'Ana', 'edad' => 28];
+$b = ['nombre' => 'Pablo', 'edad' => 35];
+$c = ['nombre' => 'Luis', 'edad' => 38];
+
+array_push($personas, $a, $b, $c);
+
+foreach ($personas as $persona) {
+    echo $persona['nombre'] . "\n";
+    echo $persona['edad'] . "\n";
+    print_r($personas);
+}
+
+// Nos permite acceder a los valores del diccionario y operar con ellos. Por ejemplo para crear una nueva lista
+
+$lista_nombres = [];
+
+foreach ($personas as $persona) {
+    $lista_nombres[] = $persona['nombre'];
+}
+echo json_encode($lista_nombres) . "\n";
+
+// Podemos coger una lista de números y modificar cada valores
+
+$numeros = [1, 2, 3, 4, 5];
+
+foreach ($numeros as $index => $numero) {
+    $numeros[$index] += 3;
+}
+print_r($numeros);
+?>
+---------------------------------------------------------------------------------------------------------------
+Condicionales.php
+
+<?php
+// Condicionales if/else
+// Sentencias condicionales IF/ELSE  
+// Un condicional es una instrucción o grupo de instrucciones que se pueden ejecutar o no en función del valor de una condición. 
+// De esta manera, controlaremos si la ejecución va por A o por B, 
+// lo que nos ayudará a contemplar diferentes casos para cubrir el mayor número de escenarios posibles
+// Depende de la condición del IF, tomará un camino u otro
+
+$a = 2;
+if ($a == 2) {
+    echo "a vale 2\n";
+} else {
+    echo "a es distinto de 2\n";
+}
+
+// Podemos concatenar condiciones con los operadores lógicos and, or y not
+
+$nombre = "Ana";
+$edad = 28;
+$ciudad = "Colombia";
+
+if ($nombre == "Ana" && $edad == 28 && $ciudad == "Colombia") {
+    echo "Su nombre es Ana, tiene 28 años y es de Colombia\n";
+} elseif ($nombre == "Ana" && $edad != 28) {
+    echo "Su nombre es Ana y no tiene 28 años\n";
+} elseif ($nombre != "Ana" && $edad == 28) {      
+    echo "Su nombre no es Ana y tiene 28 años\n";
+} else {
+    echo "No se llama Ana ni tiene 28 años\n";
+}
+?>
+-----------------------------------------------------------------------------------------
+Listas.php
+<?php
+// Condicionales if/else
+// Sentencias condicionales IF/ELSE  
+// Un condicional es una instrucción o grupo de instrucciones que se pueden ejecutar o no en función del valor de una condición. 
+// De esta manera, controlaremos si la ejecución va por A o por B, 
+// lo que nos ayudará a contemplar diferentes casos para cubrir el mayor número de escenarios posibles
+// Depende de la condición del IF, tomará un camino u otro
+
+$a = 2;
+if ($a == 2) {
+    echo "a vale 2\n";
+} else {
+    echo "a es distinto de 2\n";
+}
+
+// Podemos concatenar condiciones con los operadores lógicos and, or y not
+
+$nombre = "Ana";
+$edad = 28;
+$ciudad = "Colombia";
+
+if ($nombre == "Ana" && $edad == 28 && $ciudad == "Colombia") {
+    echo "Su nombre es Ana, tiene 28 años y es de Colombia\n";
+} elseif ($nombre == "Ana" && $edad != 28) {
+    echo "Su nombre es Ana y no tiene 28 años\n";
+} elseif ($nombre != "Ana" && $edad == 28) {      
+    echo "Su nombre no es Ana y tiene 28 años\n";
+} else {
+    echo "No se llama Ana ni tiene 28 años\n";
+}
+?>
+----------------------------------------------------------
+
+Lista.php
+
+<?php
+
+// Listas en PHP (equivalente a listas en Python)
+$a = [1, 2, 3, 4];
+print_r($a);
+
+// Operaremos como si fuese un array
+
+echo $a[0] . "\n";
+
+echo implode(", ", array_slice($a, 0, 2)) . "\n";
+
+// Concatenaremos una lista con otra lista o un número
+$b = [5, 6];
+
+print_r(array_merge($a, $b));
+
+// Podemos sustituir el valor de una posición
+$a[3] = 'Hola';
+print_r($a);
+
+// Podemos usar el método array_push() para añadir un elemento
+array_push($a, 3);
+print_r($a);
+
+// Al igual que en los strings, podemos usar count() para obtener la longitud
+echo count($a) . "\n";
+
+// Podemos ver si un elemento está o no en una lista
+echo (in_array(5, $a) ? 'true' : 'false') . "\n";
+echo (in_array(1, $a) ? 'true' : 'false') . "\n";
+
+?>
+--------------------------------------------------------------------------------------
+
+Conjuntos.php
+
+<?php
+
+// Conjuntos en PHP (equivalente a un set en Python)
+$a = [1, 2, 3, 4];
+print_r($a);
+
+// No tienen índice, no podemos usar $a[0] directamente
+
+// Podemos añadir valores y quitarlos, y ver su tamaño
+echo count($a) . "\n";
+
+// Añadir un valor
+$a[] = 8;
+
+// Eliminar un valor
+$a = array_diff($a, [2]);
+
+//Mostrar los valores sin array
+echo implode(", ", $a) . "\n";
+
+// Podemos ver si un elemento está o no en un conjunto
+echo (in_array(5, $a) ? 'true' : 'false') . "\n";
+echo (in_array(1, $a) ? 'true' : 'false') . "\n";
+
+?>
+
+------------------------------------------------------------------
+Diccionario.php
+
+<?php
+
+// Diccionario en PHP (equivalente a un conjunto en Python)
+$coche = [
+    'marca' => 'ford',
+    'color' => 'rojo',
+    'modelo' => 'sedan',
+    'placa' => 'LLW019'
+];
+
+
+
+// Imprimir valores
+echo $coche['color'] . "\n";
+print_r($coche);
+
+?>
+
+-----------------------------------------------------------------------
+Operaciones.php
+<?php
+
+// 1. Función que calcula el cuadrado de un número
+function cuadrado($a) {
+    return $a * $a;
+}
+
+$a = 5; // Definimos un valor para 'a'
+$resultado = cuadrado($a); // Llamamos a la función y guardamos el resultado
+echo "$resultado\n"; // Mostramos el resultado (25, ya que 5 * 5 = 25)
+
+
+// 2. Función que multiplica cada elemento de una lista por 2
+function multiplicar_lista($a) {
+    foreach ($a as $index => $numero) {
+        $a[$index] *= 2; // Multiplicamos cada elemento por 2
+    }
+    return $a; // Retornamos la lista modificada
+}
+
+$numeros = [1, 2, 3, 4, 5]; // Definimos una lista de números
+$resultado = multiplicar_lista($numeros); // Llamamos a la función y guardamos el resultado
+print_r($resultado); // Mostramos la lista modificada ([2, 4, 6, 8, 10])
+
+
+// 3. Función que recibe dos números y devuelve si son o no iguales
+function validar_numeros($a, $b) {
+    return $a == $b;
+}
+
+// Simulamos la entrada del usuario
+$a = 5; // Primer número
+$b = 5; // Segundo número
+
+// Llamamos a la función y guardamos el resultado
+$resultado = validar_numeros($a, $b);
+
+// Mostramos el resultado de la comparación
+if ($resultado) {
+    echo "Son iguales\n"; // Si son iguales
+} else {
+    echo "Son distintos\n"; // Si son distintos
+}
+
+?>
+-------------------------------------------------------------------------------------
+Suma.php
+<?php
+
+$numero1 = 5;
+$numero2 = 10;
+
+$resultado = $numero1 + $numero2;
+
+echo "La suma de $numero1 y $numero2 es: $resultado";
+?>
+--------------------------------------------------------------------------------------
+
+Operaciones.php (octavos_de_final)
+
+<?php
+function generar_llaves($equipos) {
+    if (count($equipos) != 16) {
+        throw new Exception("Debe haber exactamente 16 equipos para octavos de final.");
+    }
+
+    $llaves = [
+        "Octavos de final" => [],
+        "Cuartos de final" => [],
+        "Semifinales" => [],
+        "Final" => [],
+        "Tercer lugar" => []
+    ];
+
+    function introducir_resultado($equipo1, $equipo2) {
+        while (true) {
+            try {
+                $goles_equipo1 = (int) readline("Ingresa los goles de $equipo1: ");
+                $goles_equipo2 = (int) readline("Ingresa los goles de $equipo2: ");
+                if ($goles_equipo1 == $goles_equipo2) {
+                    echo "Error: No se permiten empates. Intenta de nuevo.\n";
+                } else {
+                    return [$goles_equipo1, $goles_equipo2, $goles_equipo1 > $goles_equipo2 ? $equipo1 : $equipo2];
+                }
+            } catch (Exception $e) {
+                echo "Error: Ingresa un número válido de goles.\n";
+            }
+        }
+    }
+    
+    $equipos_list = array_keys($equipos);
+    shuffle($equipos_list);
+    
+    $ganadores_octavos = [];
+    for ($i = 0; $i < 8; $i++) {
+        $partido = "Partido " . ($i+1);
+        $equipo1 = $equipos_list[$i*2];
+        $equipo2 = $equipos_list[$i*2+1];
+        echo "\nOctavos de final - $partido: $equipo1 vs $equipo2\n";
+        [$goles_equipo1, $goles_equipo2, $ganador] = introducir_resultado($equipo1, $equipo2);
+        $llaves["Octavos de final"][$partido] = ["Equipo 1" => $equipo1, "Goles Equipo 1" => $goles_equipo1, "Equipo 2" => $equipo2, "Goles Equipo 2" => $goles_equipo2, "Ganador" => $ganador];
+        $ganadores_octavos[] = $ganador;
+    }
+
+    // Similar logic follows for Cuartos, Semifinales, Final, and Tercer lugar
+    return [$llaves, "", "", ""];
+}
+
+$equipos = [
+    "Países Bajos" => 0, "Estados Unidos" => 0, "Argentina" => 0, "Australia" => 0,
+    "Japón" => 0, "Croacia" => 0, "Brasil" => 0, "Corea del Sur" => 0,
+    "Inglaterra" => 0, "Senegal" => 0, "Francia" => 0, "Polonia" => 0,
+    "Marruecos" => 0, "España" => 0, "Portugal" => 0, "Suiza" => 0
+];
+
+[$llaves_torneo, $campeon, $subcampeon, $tercer_lugar] = generar_llaves($equipos);
+
+echo "\nResumen del torneo:";
+foreach ($llaves_torneo as $ronda => $partidos) {
+    echo "\n$ronda:";
+    foreach ($partidos as $partido => $resultado) {
+        echo "\n  $partido:";
+        echo "\n    {$resultado['Equipo 1']} {$resultado['Goles Equipo 1']} - {$resultado['Goles Equipo 2']} {$resultado['Equipo 2']}";
+        echo "\n    Ganador: {$resultado['Ganador']}\n";
+    }
+}
+?>
+----------------------------------------------------------------------------------------------------
+
+Cajero.php
+
+<?php
+class Usuario {
+    public $nombre;
+    public $pin;
+    public $saldo;
+
+    public function __construct($nombre, $pin, $saldo) {
+        $this->nombre = $nombre;
+        $this->pin = $pin;
+        $this->saldo = $saldo;
+    }
+}
+
+class Banco {
+    private $usuarios;
+
+    public function __construct($usuarios = []) {
+        $this->usuarios = $usuarios;
+    }
+
+    public function autenticar($nombre, $pin) {
+        foreach ($this->usuarios as $usuario) {
+            if ($usuario->nombre == $nombre) {
+                if ($usuario->pin == $pin) {
+                    echo "Estas logueado\n";
+                    return true;
+                } else {
+                    echo "Pin incorrecto\n";
+                    return false;
+                }
+            }
+        }
+        echo "El usuario no existe\n";
+        return false;
+    }
+
+    public function sacar_dinero($nombre, $saldo) {
+        foreach ($this->usuarios as $usuario) {
+            if ($usuario->nombre == $nombre) {
+                if ($usuario->saldo < $saldo) {
+                    echo "Saldo insuficiente\n";
+                    break;
+                } else {
+                    $usuario->saldo -= $saldo;
+                    echo "El saldo disponible es " . $usuario->saldo . "\n";
+                }
+            }
+        }
+    }
+}
+
+$ana = new Usuario("Ana", 9873, 500);
+$pablo = new Usuario("Pablo", 5555, 600);
+$rodrigo = new Usuario("Rodrigo", 2222, 300);
+
+$Banco = new Banco([$ana, $pablo, $rodrigo]);
+
+while (true) {
+    echo "Bienvenido al banco, identifíquese por favor\n";
+    echo "Introduzca su nombre: ";
+    $nombre = trim(fgets(STDIN));
+    echo "Introduzca el pin: ";
+    $pin = (int) trim(fgets(STDIN));
+
+    if ($Banco->autenticar($nombre, $pin)) {
+        while (true) {
+            echo "Por favor, elija una de las opciones \n1. Retirar dinero \n2. Terminar sesión\n";
+            $opcion = trim(fgets(STDIN));
+
+            if ($opcion == "1") {
+                echo "Introduce cantidad a sacar: ";
+                $saldo = (int) trim(fgets(STDIN));
+                $Banco->sacar_dinero($nombre, $saldo);
+            } elseif ($opcion == "2") {
+                echo "Cerrando sesión\n";
+                break;
+            } else {
+                echo "Opción incorrecta, por favor introduzca una opción válida\n";
+            }
+        }
+    } else {
+        echo "Usuario no autenticado, por favor introduzca un nombre y pin válidos\n";
+    }
+}
+?>
+-------------------------------------------------------------------------------------------
+Diccionario.php
+
+<?php
+class Usuario {
+    public $nombre;
+    public $pin;
+    public $saldo;
+
+    public function __construct($nombre, $pin, $saldo) {
+        $this->nombre = $nombre;
+        $this->pin = $pin;
+        $this->saldo = $saldo;
+    }
+}
+
+class Banco {
+    private $usuarios;
+
+    public function __construct($usuarios = []) {
+        $this->usuarios = $usuarios;
+    }
+
+    public function autenticar($nombre, $pin) {
+        foreach ($this->usuarios as $usuario) {
+            if ($usuario->nombre == $nombre) {
+                if ($usuario->pin == $pin) {
+                    echo "Estas logueado\n";
+                    return true;
+                } else {
+                    echo "Pin incorrecto\n";
+                    return false;
+                }
+            }
+        }
+        echo "El usuario no existe\n";
+        return false;
+    }
+
+    public function sacar_dinero($nombre, $saldo) {
+        foreach ($this->usuarios as $usuario) {
+            if ($usuario->nombre == $nombre) {
+                if ($usuario->saldo < $saldo) {
+                    echo "Saldo insuficiente\n";
+                    break;
+                } else {
+                    $usuario->saldo -= $saldo;
+                    echo "El saldo disponible es " . $usuario->saldo . "\n";
+                }
+            }
+        }
+    }
+}
+
+$ana = new Usuario("Ana", 9873, 500);
+$pablo = new Usuario("Pablo", 5555, 600);
+$rodrigo = new Usuario("Rodrigo", 2222, 300);
+
+$Banco = new Banco([$ana, $pablo, $rodrigo]);
+
+while (true) {
+    echo "Bienvenido al banco, identifíquese por favor\n";
+    echo "Introduzca su nombre: ";
+    $nombre = trim(fgets(STDIN));
+    echo "Introduzca el pin: ";
+    $pin = (int) trim(fgets(STDIN));
+
+    if ($Banco->autenticar($nombre, $pin)) {
+        while (true) {
+            echo "Por favor, elija una de las opciones \n1. Retirar dinero \n2. Terminar sesión\n";
+            $opcion = trim(fgets(STDIN));
+
+            if ($opcion == "1") {
+                echo "Introduce cantidad a sacar: ";
+                $saldo = (int) trim(fgets(STDIN));
+                $Banco->sacar_dinero($nombre, $saldo);
+            } elseif ($opcion == "2") {
+                echo "Cerrando sesión\n";
+                break;
+            } else {
+                echo "Opción incorrecta, por favor introduzca una opción válida\n";
+            }
+        }
+    } else {
+        echo "Usuario no autenticado, por favor introduzca un nombre y pin válidos\n";
+    }
+}
+?>
